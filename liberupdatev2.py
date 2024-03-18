@@ -17,6 +17,7 @@ def main(filename):
     skip= False
     root.attrib["meiversion"]="5.0+Neumes"
     for child in root.iter():
+     #   print(child.tag)
         '''
          if re.search("<layout", line): #ignores anything inside a layout element
             if re.search("><layout", line):
@@ -31,7 +32,7 @@ def main(filename):
         if skip:
             continue
         '''
-        if child.tag  == "layout":
+        if child.tag.endswith("layout"):
             root.remove(child)
         '''
         
@@ -40,7 +41,7 @@ def main(filename):
         if re.search("meiversion", line):
             line = re.sub("meiversion=\".*\"", "meiversion=\"5.0+Neumes\"",line)
         '''
-        if child.tag == "graphic":
+        if child.tag.endswith("graphic"):
             child.attrib['target'] = child.attrib.pop('href')
         '''
        if re.search("<pb", line): #adds in the pagebreak and systembreak info we ignored up above
@@ -53,7 +54,7 @@ def main(filename):
                     break
             line=re.sub("pageref=\".*?\"", "n="+n, line)
         '''
-        if child.tag == "pb":
+        if child.tag.endswith("pb"):
             pageref=child.attrib.pop("pageref")
             for child_2 in root_2.iter():
                if child_2.attrib["xml:id"]==pageref:
@@ -72,7 +73,7 @@ def main(filename):
            
  
         '''
-        if child.tag == "sb":
+        if child.tag.endswith("sb"):
             
             systemref=child.attrib.pop("sytemref")
             for child_2 in root_2.iter():
@@ -92,9 +93,11 @@ def main(filename):
 
 
         '''
-        if child.tag == "nc":
+        if child.tag.endswith("nc"):
+            print("I'm here!")
             extra=child.attrib
-            extra.pop("xml:id")
+            print(child.attrib)
+            extra.pop("{http://www.w3.org/XML/1998/namespace}id")
             flag = True
             for grandchild in child:
                 root.subElement(root, grandchild.tag, attrib = grandchild.attrib)
@@ -108,7 +111,7 @@ def main(filename):
 
 
         '''
-        if child.tag =="dot":
+        if child.tag.endswith("dot"):
             child.tag="signifLeft"
             child.pop("form")
 
@@ -123,7 +126,7 @@ def main(filename):
             newfile.write("</syllable>\n")
             continue
         '''
-        if child.tag == "neume":
+        if child.tag..endswith("neume"):
             root.SubElement(root,"syllable").append(child)
             child.attrib['type'] = child.attrib.pop('name')
             
@@ -133,7 +136,7 @@ def main(filename):
             line = re.sub("oct=\".*?\"","", line) #accids don't have octs in MEI 5.0
 
         '''
-        if child.tag == "accid":
+        if child.tag.endswith("accid"):
             child.pop("oct")
 
         '''
@@ -149,7 +152,7 @@ def main(filename):
             continue
         
         '''
-        if child.tag=="episema": #episemas (episemae?) need to get moved to the first nc inside a neume
+        if child.tag.endswith("episema"): #episemas (episemae?) need to get moved to the first nc inside a neume
             child.tag="apisema" #should be named episema but the code is set up to delete any elements called episema
             TheresAnEpisema = True
             child.attrib["form"] = epiDict[child.attrib("form")]
@@ -180,7 +183,7 @@ def main(filename):
             line = re.sub("note","nc",line)
 
         '''
-        if child.tag=="note":
+        if child.tag.endswith("note"):
             child.tag="nec" # should be named nc but the code is set up to delete any elements called nc
             if flag:
                 flag = False
@@ -194,9 +197,9 @@ def main(filename):
                 child.Subelement(ET.XML(epis))
 
     for child in root.iter(): #rename any elements that had been given a different name to avoid deletion in the previous loop
-        if child.tag == "nec":
+        if child.tag.endswith("nec"):
             child.tag="nc"
-        if child.tag == "apisema":
+        if child.tag.endswith("apisema"):
             child.tag ="episema"
 
     tree.write(filename[:-4]+ "NEW2.mei")
