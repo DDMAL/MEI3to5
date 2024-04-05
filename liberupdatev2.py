@@ -1,6 +1,7 @@
-import re, xml.etree.ElementTree as ET
+#import re, xml.etree.ElementTree as ET
+import lxml.etree as ET
 
-ET.register_namespace("","http://www.music-encoding.org/ns/mei")
+#ET.register_namespace("","http://www.music-encoding.org/ns/mei")
 def main(filename):
 
     tree=ET.parse(filename)
@@ -33,7 +34,7 @@ def main(filename):
             continue
         '''
         if child.tag.endswith("layout"):
-            root.remove(child)
+            child.getparent().remove(child)
         '''
         
         if re.search("<graphic", line): #changes some stuff in the headers
@@ -42,7 +43,10 @@ def main(filename):
             line = re.sub("meiversion=\".*\"", "meiversion=\"5.0+Neumes\"",line)
         '''
         if child.tag.endswith("graphic"):
-            child.attrib['target'] = child.attrib.pop('href')
+            print(child.attrib)
+            for att in list(child.attrib):
+                if att.endswith("href"):                    
+                    child.attrib['target'] = child.attrib.pop(att)
         '''
        if re.search("<pb", line): #adds in the pagebreak and systembreak info we ignored up above
             pageref=re.search("pageref=\".*?\"", line).group().lstrip("pageref=")
@@ -55,7 +59,9 @@ def main(filename):
             line=re.sub("pageref=\".*?\"", "n="+n, line)
         '''
         if child.tag.endswith("pb"):
-            pageref=child.attrib.pop("pageref")
+            for att in child.attrib:
+                if att.endswith("pageref"):                    
+                    pageref = child.attrib.pop(att)
             for child_2 in root_2.iter():
                if child_2.attrib["xml:id"]==pageref:
                    child.attrib["n"]= child_2.attrib["n"]
@@ -74,8 +80,9 @@ def main(filename):
  
         '''
         if child.tag.endswith("sb"):
-            
-            systemref=child.attrib.pop("sytemref")
+            for att in child.attrib:
+                if att.endswith("systemref"):                    
+                    systemref = child.attrib.pop(att)
             for child_2 in root_2.iter():
                if child_2.attrib["xml:id"]==systemref:
                    child.attrib["facs"]= child_2.attrib["facs"]
@@ -94,14 +101,14 @@ def main(filename):
 
         '''
         if child.tag.endswith("nc"):
-            print("I'm here!")
             extra=child.attrib
-            print(child.attrib)
-            extra.pop("{http://www.w3.org/XML/1998/namespace}id")
+            for att in extra:
+                if att.endswith("id"):                    
+                    extra.pop(att)
             flag = True
             for grandchild in child:
-                root.subElement(root, grandchild.tag, attrib = grandchild.attrib)
-            root.remove(child)
+                child.getparent().subElement(root, grandchild.tag, attrib = grandchild.attrib)
+            child.getparent().remove(child)
 
         '''
  
@@ -113,7 +120,9 @@ def main(filename):
         '''
         if child.tag.endswith("dot"):
             child.tag="signifLeft"
-            child.pop("form")
+            for att in child.attrib:
+                if att.endswith("form"):
+                    child.pop(att)
 
         '''
 
@@ -126,11 +135,11 @@ def main(filename):
             newfile.write("</syllable>\n")
             continue
         '''
-        if child.tag..endswith("neume"):
+        if child.tag.endswith("neume"):
             root.SubElement(root,"syllable").append(child)
-            child.attrib['type'] = child.attrib.pop('name')
-            
-            
+            for att in child.attrib:
+                if att.endswith("name"):                    
+                    child.attrib['type'] = child.attrib.pop(att)            
         '''                    
         if re.search("<accid", line):
             line = re.sub("oct=\".*?\"","", line) #accids don't have octs in MEI 5.0
@@ -155,9 +164,11 @@ def main(filename):
         if child.tag.endswith("episema"): #episemas (episemae?) need to get moved to the first nc inside a neume
             child.tag="apisema" #should be named episema but the code is set up to delete any elements called episema
             TheresAnEpisema = True
-            child.attrib["form"] = epiDict[child.attrib("form")]
+            for att in child.attrib:
+                if att.endswith("form"):                    
+                    att= epiDict[att]
             epis = ET.tostring(child)
-            root.remove(child)
+            child.getparent().remove(child)
 
 
         '''
