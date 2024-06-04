@@ -6,7 +6,7 @@ This repository contains a collection of scripts designed to update MEI 3 files 
 **Usage**
 -----
 
-1. If you do not have it already, install lxml 5.0 using `pip install lxml`
+1. If you do not have it already, install lxml 5.0 using `pip install lxml==5.0`
 2. Clone the repository and download the scripts in this repository into the same directory as your MEI files
 3. Run the `liberbatch.py` script
    
