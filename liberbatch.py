@@ -1,19 +1,15 @@
-import os, meichecker, liberupdatev5
+import os
+import meichecker
+import liberupdatev5
 
-directory = os.fsencode("C:\\Users\\cole_\\Downloads\\liberUsualis - Copy\\liber")
-err=""
+error_message = ""
 
-i = 0 #for debugging
-for mefile in os.listdir(directory):
-    filename = os.fsdecode(mefile)
-    if filename.endswith("corr.mei"):
-        liberupdate.main(filename)
-        print(filename +" has been updated")
-        err= err+ (meichecker.main(filename[:-4]+"NEW2.mei")+"\n")
-#        print(err)
-        print(filename +" has been checked")
-     #   i+=1
+for me_file in os.listdir("."):
+    file_name = os.fsdecode(me_file)
+    if file_name.endswith("corr.mei"):
+        liberupdatev5.main(file_name)
+        print(f"{file_name} has been updated")
+        error_message += f"{meichecker.main(file_name[:-4] + ' - mei 5.mei')}\n"
+        print(f"{file_name} has been checked")
 
-    #if i>=100:
-    #    break
-print(err)
+print(error_message)
