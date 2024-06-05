@@ -21,50 +21,50 @@ def main(filename):
         if child.tag.endswith("graphic"): #changes some stuff in the headers
 
             for att in list(child.attrib):
-                
+
                 if att.endswith("href"):                    
                     child.attrib['target'] = child.attrib.pop(att)
-        
+
         if child.tag.endswith("pb"): #adds in pagebreak info from layout element (which gets deleted later)
-            
+
             for att in child.attrib:
-                
+
                 if att.endswith("pageref"):                    
                     pageref = child.attrib.pop(att)
                     break
 
             for child_2 in root.iter():
-              
+
               for attr, value in child_2.attrib.items():
-                
+
                 if attr.endswith("id") and value==pageref:
                        child.attrib["n"]= child_2.attrib["n"]
                        break
 
 
         if child.tag.endswith("sb"): #adds in systembreak info from layout element (which gets deleted later)
-            
+
             for att in child.attrib:
                 if att.endswith("systemref"):                    
                     systemref = child.attrib.pop(att)
                     break
             for child_2 in root.iter():
-               
+ 
               for attr, value in child_2.attrib.items():
                 if attr.endswith("id") and value==systemref:
                        child.attrib["facs"]= child_2.attrib["facs"]
                        break
         if child.tag.endswith("zone"):
-             label = ""
-             for attr, value in child.attrib.items():
+            label = ""
+            for attr, value in child.attrib.items():
                 if attr.endswith("ulx") and int(value)<0:
-                       
+
                        child.attrib["label"] = label + "ulx = " + value + " " #some boxes have x-coordinates below 0. This makes them 0 and adds a label listing the original value
                        child.attrib[attr] = str(0)
                        break
-             for attr, value in child.attrib.items():
+            for attr, value in child.attrib.items():
                 if attr.endswith("lrx") and int(value)<0:
-                       
+
                        child.attrib["label"] = label + "lrx = " + value + " " #ditto
                        child.attrib[attr] = str(0)
                        break
@@ -91,7 +91,7 @@ def main(filename):
                 if att.endswith("id"):                    
                     child.attrib['xml:id'] = extra_neume.pop(att)
                     break
-        
+
         if child.tag.endswith("nc"):
             extra_nc=dict(child.attrib)
             child.attrib.clear()
@@ -111,17 +111,17 @@ def main(filename):
 
 
         if child.tag.endswith("note"):
-                        if flag:
-                            flag = False
-                            child.attrib.update(extra_nc)
-                        for att, value in child.attrib.items():
-                            if att.endswith("inclinatum"):
-                                child.attrib["tilt"]="se"
-                                child.attrib.pop(att)
-                                break
-                        if TheresAnEpisema:
-                            TheresAnEpisema=False
-                            child.append(ET.fromstring(epis))
+            if flag:
+                flag = False
+                child.attrib.update(extra_nc)
+                for att, value in child.attrib.items():
+                    if att.endswith("inclinatum"):
+                        child.attrib["tilt"]="se"
+                        child.attrib.pop(att)
+                        break
+                    if TheresAnEpisema:
+                        TheresAnEpisema=False
+                        child.append(ET.fromstring(epis))
 
        #accids don't have octs or pnames in MEI 5.0
 
@@ -134,9 +134,9 @@ def main(filename):
                 if att.endswith("pname"):                    
                     child.attrib.pop(att)
                     break
-            
+
         if child.tag.endswith("episema"): #episemas (episemae?) need to get moved to the first nc inside a neume
-            
+
             child.tag="apisema" 
             TheresAnEpisema = True
             for att, value in child.attrib.items():
@@ -146,7 +146,7 @@ def main(filename):
             child.tag = "TODELETE"
 
 
-  
+
     new_root = ET.Element(root.tag)
     stack = [(new_root, root)]  # stack of (new_element, old_element) pairs
 
@@ -165,11 +165,11 @@ def main(filename):
             elif tag.endswith("nc"):
                 tag = "neume"    
             elif tag.endswith("note"):
-             tag = "nc"
+                tag = "nc"
             if tag.endswith("apisema"):
-             tag = "episema"
+                tag = "episema"
             if tag.endswith("division"):
-             tag = "divLine"
+                tag = "divLine"
 
 
             new_child = ET.Element(tag, child.attrib)

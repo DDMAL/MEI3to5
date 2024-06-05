@@ -1,6 +1,22 @@
 import os
 import meichecker
 import liberupdatev5
+<<<<<<< 8-remove-commented-code-from-scripts
+PATH = "your path here"
+
+directory = os.fsencode(PATH)
+err=""
+
+for mefile in os.listdir(directory):
+    filename = os.fsdecode(mefile)
+   
+    liberupdatev5.main(filename)
+    print(filename +" has been updated")
+    err += f"{meichecker.main(filename[:-4]+"NEW2.mei} \n"
+    print(filename +" has been checked")
+
+print(err)
+=======
 
 error_message = ""
 
@@ -13,3 +29,4 @@ for me_file in os.listdir("."):
         print(f"{file_name} has been checked")
 
 print(error_message)
+>>>>>>> main
