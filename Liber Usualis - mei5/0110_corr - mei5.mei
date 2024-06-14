@@ -1,2 +1,32 @@
-<?xml version='1.0' encoding='utf-8'?>
-<mei:mei xmlns:mei="http://www.music-encoding.org/ns/mei"><mei:meiHead><mei:fileDesc><mei:titleStmt><mei:title /></mei:titleStmt><mei:pubStmt /></mei:fileDesc></mei:meiHead><mei:music><mei:facsimile xml:id="m-498d9eb6-a517-4282-bf94-ebbea23e8cd2"><mei:surface xml:id="m-d284e16c-da33-4485-9c1b-43d804829505"><mei:graphic xml:id="m-7508551d-b48d-4993-bbc9-6ab3efaad1bd" target="0110_original_image.tiff" /></mei:surface></mei:facsimile><mei:body><mei:mdiv type="solesmes"><mei:score><mei:section><mei:pb xml:id="m-afee9ecc-873d-4907-8986-c3dd995e22a1" n="0110" /><mei:div xml:id="m-9eb26a18-5020-4692-8ef4-eca99afc00ca"><mei:lg xml:id="m-af6cd500-cbfc-4b1c-92b4-21678e0221f2" /></mei:div></mei:section></mei:score></mei:mdiv></mei:body></mei:music></mei:mei>
+<?xml version='1.0' encoding='UTF8'?>
+<?xml-model href="https://music-encoding.org/schema/5.0/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://music-encoding.org/schema/5.0/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei
+    xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.0">
+    <meiHead>
+        <fileDesc>
+            <titleStmt>
+                <title/>
+            </titleStmt>
+            <pubStmt/>
+        </fileDesc>
+    </meiHead>
+    <music>
+        <facsimile xml:id="m-498d9eb6-a517-4282-bf94-ebbea23e8cd2">
+            <surface xml:id="m-d284e16c-da33-4485-9c1b-43d804829505">
+                <graphic xml:id="m-7508551d-b48d-4993-bbc9-6ab3efaad1bd" target="0110_original_image.tiff"/>
+            </surface>
+        </facsimile>
+        <body>
+            <mdiv type="solesmes">
+                <score>
+                    <section>
+                        <div xml:id="m-9eb26a18-5020-4692-8ef4-eca99afc00ca">
+                            <lg xml:id="m-af6cd500-cbfc-4b1c-92b4-21678e0221f2"><l/></lg>
+                        </div>
+                    </section>
+                </score>
+            </mdiv>
+        </body>
+    </music>
+</mei>
