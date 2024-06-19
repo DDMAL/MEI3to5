@@ -38,7 +38,7 @@ def main(filename: str) -> None:
         if child.tag.endswith("graphic"): #changes some stuff in the headers
             for att in list(child.attrib):
                 if att.endswith("href"):                    
-                    child.attrib('target', child.attrib.pop(att))
+                    child.set('target', child.attrib.pop(att))
         
         # Handle page breaks
         elif child.tag.endswith("pb"): #adds in pagebreak info from layout element (which gets deleted later)
@@ -76,24 +76,20 @@ def main(filename: str) -> None:
         elif child.tag.endswith("layer"):
             if theres_a_pb:
                 theres_a_pb = False
-                child.append(ET.fromstring(pa_bre))
+                child.insert(0, ET.fromstring(pa_bre))
             if theres_a_sb:
                 theres_a_sb = False
-                child.append(ET.fromstring(sy_bre))
+                child.insert(0, ET.fromstring(sy_bre))
 
         # Handle zone elements (adjusts negative ulx and lrx attributes)
         elif child.tag.endswith("zone"):
             label = ""
             for attr, value in child.attrib.items():
                 if attr.endswith("ulx") and int(value) < 0:
-                    label = f"{label} ulx = {value} "
-                    child.set("label", label)
                     child.set(attr, "0")
                     break
             for attr, value in child.attrib.items():
                 if attr.endswith("lrx") and int(value) < 0:
-                    label = f"{label} ulx = {value} "
-                    child.set("label", label)
                     child.set(attr, "0")
                     break
         
@@ -104,10 +100,15 @@ def main(filename: str) -> None:
                 if att.endswith("form"):
                     child.attrib.pop(att)
                     break
+        
+        # Handle empty lg elements
+        elif child.tag.endswith("lg"):
+            if len(list(child)) == 0:
+                child.insert(0, ET.Element('l'))
 
         # Handle neume elements (become syllables, ncs become neumes, and notes become ncs)
         elif child.tag.endswith("neume"):
-            _syl = ET.SubElement(child, "syl")
+            child.insert(0, ET.Element("syl"))
             extra_neume= dict(child.attrib)
             child.attrib.clear()
             neume_flag = True
@@ -156,11 +157,11 @@ def main(filename: str) -> None:
             for att in child.attrib:
                 if att.endswith("quilisma"):
                     child.attrib.pop(att)
-                    _quil = ET.SubElement(child, "quilisma")
+                    child.insert(0, ET.Element("quilisma"))
                     break
             if theres_an_episema:
                 theres_an_episema = False
-                child.append(ET.fromstring(epis))
+                child.insert(0, ET.fromstring(epis))
 
         # Handle accid elements (remove oct and pname attributes)
         elif child.tag.endswith("accid"):
