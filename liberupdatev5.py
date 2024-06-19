@@ -20,8 +20,7 @@ def main(filename: str) -> None:
     theres_an_episema = False
     theres_a_pb = False
     theres_a_sb = False
-    flag = False
-    neume_flag = False
+    nc_flag = False
     neume_flag = False
 
     # Extra attributes for neumes and notes
@@ -39,10 +38,10 @@ def main(filename: str) -> None:
         if child.tag.endswith("graphic"): #changes some stuff in the headers
             for att in list(child.attrib):
                 if att.endswith("href"):                    
-                    child.attrib['target'] = child.attrib.pop(att)
+                    child.set('target', child.attrib.pop(att))
         
         # Handle page breaks
-        if child.tag.endswith("pb"): #adds in pagebreak info from layout element (which gets deleted later)
+        elif child.tag.endswith("pb"): #adds in pagebreak info from layout element (which gets deleted later)
             child.tag = "peeb"
             for att in child.attrib:                
                 if att.endswith("pageref"):                    
@@ -51,14 +50,14 @@ def main(filename: str) -> None:
             for child_2 in root.iter():
               for attr, value in child_2.attrib.items():               
                 if attr.endswith("id") and value == pageref:
-                        child.attrib["n"] = child_2.attrib["n"]
+                        child.set("n", child_2.attrib["n"])
                         break                 
             pa_bre = ET.tostring(child)
             theres_a_pb = True
             child.tag = "TODELETE"
         
         # Handle system breaks
-        if child.tag.endswith("sb"):
+        elif child.tag.endswith("sb"):
             child.tag = "seeb"
             for att in child.attrib:
                 if att.endswith("systemref"):                    
@@ -67,102 +66,105 @@ def main(filename: str) -> None:
             for child_2 in root.iter():               
               for attr, value in child_2.attrib.items():
                 if attr.endswith("id") and value == systemref:
-                        child.attrib["facs"] = child_2.attrib["facs"]
+                        child.set("facs", child_2.attrib["facs"])
                         break
             sy_bre = ET.tostring(child)           
             theres_a_sb = True
             child.tag = "TODELETE"
 
         # Moves system breaks and page breaks inside layer
-        if child.tag.endswith("layer"):
+        elif child.tag.endswith("layer"):
             if theres_a_pb:
                 theres_a_pb = False
-                child.append(ET.fromstring(pa_bre))
+                child.insert(0, ET.fromstring(pa_bre))
             if theres_a_sb:
                 theres_a_sb = False
-                child.append(ET.fromstring(sy_bre))
+                child.insert(0, ET.fromstring(sy_bre))
 
         # Handle zone elements (adjusts negative ulx and lrx attributes)
-        if child.tag.endswith("zone"):
-             label = ""
-             for attr, value in child.attrib.items():
-                if attr.endswith("ulx") and int(value) < 0:                       
-                        child.attrib["label"] = label + "ulx = " + value + " "
-                        child.attrib[attr] = str(0)
-                        break                
-             for attr, value in child.attrib.items():
-                if attr.endswith("lrx") and int(value) < 0:       
-                        child.attrib["label"] = label + "lrx = " + value + " "
-                        child.attrib[attr] = str(0)
-                        break
+        elif child.tag.endswith("zone"):
+            label = ""
+            for attr, value in child.attrib.items():
+                if attr.endswith("ulx") and int(value) < 0:
+                    child.set(attr, "0")
+                    break
+            for attr, value in child.attrib.items():
+                if attr.endswith("lrx") and int(value) < 0:
+                    child.set(attr, "0")
+                    break
         
         # Handle dot elements (temporary fix until morae get added to MEI)
-        if child.tag.endswith("dot"):
+        elif child.tag.endswith("dot"):
             child.tag = "signifLet"
             for att in child.attrib:
                 if att.endswith("form"):
                     child.attrib.pop(att)
                     break
+        
+        # Handle empty lg elements
+        elif child.tag.endswith("lg"):
+            if len(list(child)) == 0:
+                child.insert(0, ET.Element('l'))
 
         # Handle neume elements (become syllables, ncs become neumes, and notes become ncs)
-        if child.tag.endswith("neume"):
-            syl = ET.SubElement(child, "syl")
+        elif child.tag.endswith("neume"):
+            child.insert(0, ET.Element("syl"))
             extra_neume= dict(child.attrib)
             child.attrib.clear()
             neume_flag = True
             for att in extra_neume:
                 if att.endswith("name"):                    
-                    child.attrib['type'] = extra_neume.pop(att)
+                    child.set('type', extra_neume.pop(att))
                     break
             for att in extra_neume:
                 if att.endswith("variant"):                    
-                    child.attrib['type'] = child.attrib['type'] + extra_neume.pop(att)
+                    child.set('type',  child.attrib['type'] + extra_neume.pop(att))
                     break
             for att in extra_neume:
                 if att.endswith("id"):                    
-                    child.attrib[att] = extra_neume.pop(att)
+                    child.set(att, extra_neume.pop(att))
                     break
 
         #Handle nc elements
-        if child.tag.endswith("nc"):
+        elif child.tag.endswith("nc"):
             extra_nc = dict(child.attrib)
             child.attrib.clear()
-            flag = True
+            nc_flag = True
             if neume_flag:
                 neume_flag = False
                 child.attrib.update(extra_neume)
             for att in extra_nc:
                 if att.endswith("id"):                    
-                    child.attrib[att] = extra_nc.pop(att)
+                    child.set(att, extra_nc.pop(att))
                     break
 
         # Handle division elements (become divLine)
-        if child.tag.endswith("division"):
+        elif child.tag.endswith("division"):
             for att, value in child.attrib.items():
                 if att.endswith("form"):
-                    child.attrib[att] = div_dict[value]
+                    child.set(att, div_dict[value])
 
         # Handle note elements
-        if child.tag.endswith("note"):
-            if flag:
-                flag = False
+        elif child.tag.endswith("note"):
+            if nc_flag:
+                nc_flag = False
                 child.attrib.update(extra_nc)
             for att, value in child.attrib.items():
                 if att.endswith("inclinatum"):
-                    child.attrib["tilt"] = "se"
+                    child.set("tilt", "se")
                     child.attrib.pop(att)
                     break
             for att in child.attrib:
                 if att.endswith("quilisma"):
                     child.attrib.pop(att)
-                    quil = ET.SubElement(child, "quilisma")
+                    child.insert(0, ET.Element("quilisma"))
                     break
             if theres_an_episema:
                 theres_an_episema = False
-                child.append(ET.fromstring(epis))
+                child.insert(0, ET.fromstring(epis))
 
         # Handle accid elements (remove oct and pname attributes)
-        if child.tag.endswith("accid"):
+        elif child.tag.endswith("accid"):
             for att in child.attrib:
                 if att.endswith("oct"):
                     child.attrib.pop(att)
@@ -173,12 +175,12 @@ def main(filename: str) -> None:
                     break
 
         # Handle episema elements
-        if child.tag.endswith("episema"):
+        elif child.tag.endswith("episema"):
             child.tag = "apisema"
             theres_an_episema = True
             for att, value in child.attrib.items():
                 if att.endswith("form"):
-                    child.attrib[att] = epi_dict[value]
+                    child.set(att, epi_dict[value])
             for att in child.attrib:
                 if att.endswith("startid"):
                     child.attrib.pop(att)
@@ -221,13 +223,13 @@ def main(filename: str) -> None:
                 tag = "neume"
             elif tag.endswith("note"):
                 tag = "nc"
-            if tag.endswith("apisema"):
+            elif tag.endswith("apisema"):
                 tag = "episema"
-            if tag.endswith("peeb"):
+            elif tag.endswith("peeb"):
                 tag = "pb"
-            if tag.endswith("seeb"):
+            elif tag.endswith("seeb"):
                 tag = "sb"
-            if tag.endswith("division"):
+            elif tag.endswith("division"):
                 tag = "divLine"
 
             new_child = ET.Element(tag, child.attrib)
