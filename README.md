@@ -11,3 +11,6 @@ This repository contains a collection of scripts designed to update MEI 3 files 
 3. Run the `liberbatch.py` script
    
 This will update the Liber Usualis files from MEI 3 to MEI 5.
+
+Nota Bene: Page 0123 has an unexpected `DivLine` inside of a neume component that needs to be manually removed and added to the `layer` element. Page 1851 has an undetermined error.
+
