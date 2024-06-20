@@ -1,5 +1,6 @@
 import lxml.etree as ET
 
+
 def main(filename: str) -> None:
     """
     Converts an MEI file to MEI 5.0 format.
@@ -13,7 +14,14 @@ def main(filename: str) -> None:
     root = tree.getroot()
 
     # Dictionaries for mapping attribute values
-    div_dict = {"minor": "maior", "minior": "maior", "major": "maxima", "final": "finalis", "small": "minima", "comma": "virgula"}
+    div_dict = {
+        "minor": "maior",
+        "minior": "maior",
+        "major": "maxima",
+        "final": "finalis",
+        "small": "minima",
+        "comma": "virgula",
+    }
     epi_dict = {"horizontal": "h", "vertical": "v"}
 
     # Flags for tracking certain conditions
@@ -35,40 +43,36 @@ def main(filename: str) -> None:
         child.tag = ET.QName(child).localname
 
         # Handle graphic elements (e.g., change href to target)
-        if child.tag.endswith("graphic"): #changes some stuff in the headers
+        if child.tag.endswith("graphic"):  # changes some stuff in the headers
             for att in list(child.attrib):
-                if att.endswith("href"):                    
-                    child.set('target', child.attrib.pop(att))
-        
+                if att.endswith("href"):
+                    child.set("target", child.attrib.pop(att))
+
         # Handle page breaks
-        elif child.tag.endswith("pb"): #adds in pagebreak info from layout element (which gets deleted later)
+        elif child.tag.endswith("pb"):
             child.tag = "peeb"
-            for att in child.attrib:                
-                if att.endswith("pageref"):                    
-                    pageref = child.attrib.pop(att)
-                    break
+            if child.get("pageref") is not None:
+                pageref = child.attrib.pop("pageref")
             for child_2 in root.iter():
-              for attr, value in child_2.attrib.items():               
-                if attr.endswith("id") and value == pageref:
+                for attr, value in child_2.attrib.items():
+                    if attr.endswith("id") and value == pageref:
                         child.set("n", child_2.attrib["n"])
-                        break                 
+                        break
             pa_bre = ET.tostring(child)
             theres_a_pb = True
             child.tag = "TODELETE"
-        
+
         # Handle system breaks
         elif child.tag.endswith("sb"):
             child.tag = "seeb"
-            for att in child.attrib:
-                if att.endswith("systemref"):                    
-                    systemref = child.attrib.pop(att)
-                    break
-            for child_2 in root.iter():               
-              for attr, value in child_2.attrib.items():
-                if attr.endswith("id") and value == systemref:
+            if child.get("systemref") is not None:
+                systemref = child.attrib.pop("systemref")
+            for child_2 in root.iter():
+                for attr, value in child_2.attrib.items():
+                    if attr.endswith("id") and value == systemref:
                         child.set("facs", child_2.attrib["facs"])
                         break
-            sy_bre = ET.tostring(child)           
+            sy_bre = ET.tostring(child)
             theres_a_sb = True
             child.tag = "TODELETE"
 
@@ -83,49 +87,38 @@ def main(filename: str) -> None:
 
         # Handle zone elements (adjusts negative ulx and lrx attributes)
         elif child.tag.endswith("zone"):
-            label = ""
-            for attr, value in child.attrib.items():
-                if attr.endswith("ulx") and int(value) < 0:
-                    child.set(attr, "0")
-                    break
-            for attr, value in child.attrib.items():
-                if attr.endswith("lrx") and int(value) < 0:
-                    child.set(attr, "0")
-                    break
-        
+            if child.get("ulx") is not None and int(child.get("ulx")) < 0:
+                child.set("ulx", "0")
+            if child.get("lrx") is not None and int(child.get("lrx")) < 0:
+                child.set("lrx", "0")
+
         # Handle dot elements (temporary fix until morae get added to MEI)
         elif child.tag.endswith("dot"):
             child.tag = "signifLet"
-            for att in child.attrib:
-                if att.endswith("form"):
-                    child.attrib.pop(att)
-                    break
-        
+            if child.get("form") is not None:
+                child.attrib.pop("form")
+
         # Handle empty lg elements
         elif child.tag.endswith("lg"):
             if len(list(child)) == 0:
-                child.insert(0, ET.Element('l'))
+                child.insert(0, ET.Element("l"))
 
         # Handle neume elements (become syllables, ncs become neumes, and notes become ncs)
         elif child.tag.endswith("neume"):
             child.insert(0, ET.Element("syl"))
-            extra_neume= dict(child.attrib)
+            extra_neume = dict(child.attrib)
             child.attrib.clear()
             neume_flag = True
+            if child.get("name") is not None:
+                child.set("type", extra_neume.pop("name"))
+            if child.get("variant") is not None:
+                child.set("type", child.attrib["type"] + extra_neume.pop("variant"))
             for att in extra_neume:
-                if att.endswith("name"):                    
-                    child.set('type', extra_neume.pop(att))
-                    break
-            for att in extra_neume:
-                if att.endswith("variant"):                    
-                    child.set('type',  child.attrib['type'] + extra_neume.pop(att))
-                    break
-            for att in extra_neume:
-                if att.endswith("id"):                    
+                if att.endswith("id"):
                     child.set(att, extra_neume.pop(att))
                     break
 
-        #Handle nc elements
+        # Handle nc elements
         elif child.tag.endswith("nc"):
             extra_nc = dict(child.attrib)
             child.attrib.clear()
@@ -134,64 +127,49 @@ def main(filename: str) -> None:
                 neume_flag = False
                 child.attrib.update(extra_neume)
             for att in extra_nc:
-                if att.endswith("id"):                    
+                if att.endswith("id"):
                     child.set(att, extra_nc.pop(att))
                     break
 
         # Handle division elements (become divLine)
         elif child.tag.endswith("division"):
-            for att, value in child.attrib.items():
-                if att.endswith("form"):
-                    child.set(att, div_dict[value])
+            if child.get("form") is not None:
+                child.set("form", div_dict[child.get("form")])
 
         # Handle note elements
         elif child.tag.endswith("note"):
             if nc_flag:
                 nc_flag = False
                 child.attrib.update(extra_nc)
-            for att, value in child.attrib.items():
-                if att.endswith("inclinatum"):
-                    child.set("tilt", "se")
-                    child.attrib.pop(att)
-                    break
-            for att in child.attrib:
-                if att.endswith("quilisma"):
-                    child.attrib.pop(att)
-                    child.insert(0, ET.Element("quilisma"))
-                    break
+            if child.get("inclinatum") is not None:
+                child.set("tilt", "se")
+                child.attrib.pop("inclinatum")
+            if child.get("quilisma") is not None:
+                child.attrib.pop("quilisma")
+                child.insert(0, ET.Element("quilisma"))
             if theres_an_episema:
                 theres_an_episema = False
                 child.insert(0, ET.fromstring(epis))
 
         # Handle accid elements (remove oct and pname attributes)
         elif child.tag.endswith("accid"):
-            for att in child.attrib:
-                if att.endswith("oct"):
-                    child.attrib.pop(att)
-                    break
-            for att in child.attrib:
-                if att.endswith("pname"):
-                    child.attrib.pop(att)
-                    break
+            if child.get("oct") is not None:
+                child.attrib.pop("oct")
+            if child.get("pname") is not None:
+                child.attrib.pop("pname")
 
         # Handle episema elements
         elif child.tag.endswith("episema"):
             child.tag = "apisema"
             theres_an_episema = True
-            for att, value in child.attrib.items():
-                if att.endswith("form"):
-                    child.set(att, epi_dict[value])
-            for att in child.attrib:
-                if att.endswith("startid"):
-                    child.attrib.pop(att)
-                    break
-            for att in child.attrib:
-                if att.endswith("endid"):
-                    child.attrib.pop(att)
-                    break
+            if child.get("form") is not None:
+                child.set("form", epi_dict[child.get("form")])
+            if child.get("startid") is not None:
+                child.attrib.pop("startid")
+            if child.get("endid") is not None:
+                child.attrib.pop("endid")
             epis = ET.tostring(child)
             child.tag = "TODELETE"
-
 
     # Create a new root element with MEI 5.0 namespace
     new_root = ET.Element(root.tag)
@@ -199,8 +177,14 @@ def main(filename: str) -> None:
     new_root.attrib["meiversion"] = "5.0"
 
     # Create processing instructions
-    pi1 = ET.ProcessingInstruction('xml-model', 'href="https://music-encoding.org/schema/5.0/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"')
-    pi2 = ET.ProcessingInstruction('xml-model', 'href="https://music-encoding.org/schema/5.0/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"')
+    pi1 = ET.ProcessingInstruction(
+        "xml-model",
+        'href="https://music-encoding.org/schema/5.0/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"',
+    )
+    pi2 = ET.ProcessingInstruction(
+        "xml-model",
+        'href="https://music-encoding.org/schema/5.0/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"',
+    )
 
     # Add processing instructions to the tree
     new_root.addprevious(pi1)

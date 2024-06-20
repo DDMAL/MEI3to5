@@ -1,5 +1,6 @@
 from lxml import etree
 
+
 def main(filename: str) -> str:
     """
     Validates an MEI file against the MEI 5.0 schema.

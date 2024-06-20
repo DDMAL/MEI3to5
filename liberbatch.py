@@ -19,7 +19,7 @@ for me_file in os.listdir("."):
         print(f"{file_name} has been updated")
 
         # Validate the updated MEI file using meichecker
-        error_log = meichecker.main(file_name[:-4] + ' - mei5.mei')
+        error_log = meichecker.main(file_name[:-4] + " - mei5.mei")
         error_message += f"{error_log}\n"
         print(f"{file_name} has been checked")
 
