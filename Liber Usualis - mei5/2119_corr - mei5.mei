@@ -1,2 +1,52 @@
 <?xml version='1.0' encoding='UTF8'?>
-<?xml-model href="https://music-encoding.org/schema/5.0/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://music-encoding.org/schema/5.0/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.0"><meiHead><fileDesc><titleStmt><title/></titleStmt><pubStmt/></fileDesc></meiHead><music><facsimile xml:id="m-afb37378-876c-4b99-82c2-68a5ea65708c"><surface xml:id="m-8160f2e8-174e-489c-aadb-e654b969d98e"><graphic xml:id="m-3b886808-fa3e-4382-92eb-62ee7776d438" target="2119_original_image.tiff"/><zone xml:id="m-ed98ca63-c5ce-4261-8a1f-4c2e57e2535a" lry="744" ulx="117" uly="631" lrx="136"/><zone xml:id="m-f10bca88-4ad7-4cd8-a6d0-8f057cae2c19" lry="706" ulx="1920" uly="579" lrx="1944"/><zone xml:id="m-9af60292-228b-4d60-89be-0b8e8663adae" lry="711" ulx="69" uly="610" lrx="2206"/><zone xml:id="m-266097a6-3c46-4265-90de-6c5f288fcbde" lry="1124" ulx="312" uly="1073" lrx="364"/><zone xml:id="m-3973f249-f02a-404c-92ec-45790555aabc" lry="1088" ulx="461" uly="1059" lrx="491"/><zone xml:id="m-f11f14b7-2fe1-441c-b2c3-09cbea7fe1a1" lry="1087" ulx="802" uly="1058" lrx="833"/><zone xml:id="m-126639a7-a31f-4230-b611-e9905deb0fc2" lry="1084" ulx="1515" uly="1053" lrx="1545"/><zone xml:id="m-c917bb80-49f1-47c2-b55b-1cae5fced183" lry="1170" ulx="1584" uly="1037" lrx="1610"/><zone xml:id="m-5b5ea65d-dd27-4eda-b4a3-1b7df2a250d9" lry="1174" ulx="73" uly="1064" lrx="2212"/><zone xml:id="m-75618aff-a3a6-4831-9e0d-890c4316a87b" lry="1514" ulx="1101" uly="1377" lrx="1126"/><zone xml:id="m-5b4f08eb-71f1-4d64-9cef-1305002c4da9" lry="1458" ulx="1616" uly="1362" lrx="1651"/><zone xml:id="m-f4e82cc6-ae4d-4186-9746-128ffe959e37" lry="1508" ulx="1959" uly="1373" lrx="1987"/><zone xml:id="m-5ba6da1e-091f-473c-b2dd-8ff75b2e1810" lry="1485" ulx="72" uly="1374" lrx="2216"/></surface></facsimile><body><mdiv type="solesmes"><score><scoreDef><staffGrp xml:id="m-f8829a29-bc44-4bfc-8961-62af336a8a9c"><staffDef xml:id="m-3878d79c-e209-47d8-b29a-5eb788279661" n="1"/><staffDef xml:id="m-1d43feee-c69d-416b-9b9c-7115c3ed6de2" n="2"/><staffDef xml:id="m-8fe5a08c-2f4f-499d-aa46-30d872175f3b" n="3"/></staffGrp></scoreDef><section><staff xml:id="m-11e78e61-3f96-49ee-9f3e-48c86d7c79b1" n="1"><layer xml:id="m-8d81de85-42c6-4e3b-a50a-5a4ea195e59f" n="1"><pb xml:id="m-b66f2c03-2953-48f1-9691-5e1b7f3cbce2" n="2119"/></layer></staff><staff xml:id="m-cd55847d-ff0e-414d-a104-c0f2310da7cb" n="2"><layer xml:id="m-a6e5535b-6e03-44ca-bc0e-344716e8c775" n="1"><sb xml:id="m-e5b8a84b-8db5-4ef5-924c-9d19d6d52bea" n="2" facs="m-5b5ea65d-dd27-4eda-b4a3-1b7df2a250d9"/></layer></staff><staff xml:id="m-38e0a715-afb9-477f-addd-9974c9877df2" n="3"><layer xml:id="m-79f7f80d-b0b8-4256-b468-56f5696f479a" n="1"><sb xml:id="m-7bd43db1-c021-417a-b87a-710ce691cf46" n="3" facs="m-5ba6da1e-091f-473c-b2dd-8ff75b2e1810"/></layer></staff></section></score></mdiv></body></music></mei>
+<?xml-model href="https://music-encoding.org/schema/5.0/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="https://music-encoding.org/schema/5.0/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.0">
+    <meiHead>
+        <fileDesc>
+            <titleStmt>
+                <title/>
+            </titleStmt>
+            <pubStmt/>
+        </fileDesc>
+    </meiHead>
+    <music>
+        <facsimile xml:id="m-afb37378-876c-4b99-82c2-68a5ea65708c">
+            <surface xml:id="m-8160f2e8-174e-489c-aadb-e654b969d98e">
+                <graphic xml:id="m-3b886808-fa3e-4382-92eb-62ee7776d438" target="2119_original_image.tiff"/>
+                <zone xml:id="m-ed98ca63-c5ce-4261-8a1f-4c2e57e2535a" lry="744" ulx="117" uly="631" lrx="136"/>
+                <zone xml:id="m-f10bca88-4ad7-4cd8-a6d0-8f057cae2c19" lry="706" ulx="1920" uly="579" lrx="1944"/>
+                <zone xml:id="m-9af60292-228b-4d60-89be-0b8e8663adae" lry="711" ulx="69" uly="610" lrx="2206"/>
+                <zone xml:id="m-266097a6-3c46-4265-90de-6c5f288fcbde" lry="1124" ulx="312" uly="1073" lrx="364"/>
+                <zone xml:id="m-3973f249-f02a-404c-92ec-45790555aabc" lry="1088" ulx="461" uly="1059" lrx="491"/>
+                <zone xml:id="m-f11f14b7-2fe1-441c-b2c3-09cbea7fe1a1" lry="1087" ulx="802" uly="1058" lrx="833"/>
+                <zone xml:id="m-126639a7-a31f-4230-b611-e9905deb0fc2" lry="1084" ulx="1515" uly="1053" lrx="1545"/>
+                <zone xml:id="m-c917bb80-49f1-47c2-b55b-1cae5fced183" lry="1170" ulx="1584" uly="1037" lrx="1610"/>
+                <zone xml:id="m-5b5ea65d-dd27-4eda-b4a3-1b7df2a250d9" lry="1174" ulx="73" uly="1064" lrx="2212"/>
+                <zone xml:id="m-75618aff-a3a6-4831-9e0d-890c4316a87b" lry="1514" ulx="1101" uly="1377" lrx="1126"/>
+                <zone xml:id="m-5b4f08eb-71f1-4d64-9cef-1305002c4da9" lry="1458" ulx="1616" uly="1362" lrx="1651"/>
+                <zone xml:id="m-f4e82cc6-ae4d-4186-9746-128ffe959e37" lry="1508" ulx="1959" uly="1373" lrx="1987"/>
+                <zone xml:id="m-5ba6da1e-091f-473c-b2dd-8ff75b2e1810" lry="1485" ulx="72" uly="1374" lrx="2216"/>
+            </surface>
+        </facsimile>
+        <body>
+            <mdiv type="solesmes">
+                <score>
+                    <scoreDef>
+                        <staffGrp xml:id="m-f8829a29-bc44-4bfc-8961-62af336a8a9c">
+                            <staffDef xml:id="m-3878d79c-e209-47d8-b29a-5eb788279661" n="1" lines="4"/>
+                        </staffGrp>
+                    </scoreDef>
+                    <section>
+                        <staff>
+                            <layer>
+                                <ns0:pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-b66f2c03-2953-48f1-9691-5e1b7f3cbce2" n="2119"/>
+                                <sb xml:id="m-e0a3739c-c577-42d2-a169-a8d70ff19a1c" n="1" facs="#m-9af60292-228b-4d60-89be-0b8e8663adae"/>
+                                <sb xml:id="m-e5b8a84b-8db5-4ef5-924c-9d19d6d52bea" n="2" facs="#m-5b5ea65d-dd27-4eda-b4a3-1b7df2a250d9"/>
+                                <sb xml:id="m-7bd43db1-c021-417a-b87a-710ce691cf46" n="3" facs="#m-5ba6da1e-091f-473c-b2dd-8ff75b2e1810"/>
+                            </layer>
+                        </staff>
+                    </section>
+                </score>
+            </mdiv>
+        </body>
+    </music>
+</mei>
