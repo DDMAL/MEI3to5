@@ -302,13 +302,13 @@
                 <score>
                     <scoreDef>
                         <staffGrp xml:id="m-d7fcd082-df01-4e1b-a71f-952feb912c68">
-                            <staffDef xml:id="m-222c64f9-b343-4021-9798-11a02eeb3b91" n="1" lines="4"/>
+                            <staffDef xml:id="m-222c64f9-b343-4021-9798-11a02eeb3b91" n="1" lines="4" notationtype="neume"/>
                         </staffGrp>
                     </scoreDef>
                     <section>
                         <staff>
                             <layer>
-                                <ns0:pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-51247400-0df2-4ec6-8bd8-3d2c3445537f" n="1958"/>
+                                <pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-51247400-0df2-4ec6-8bd8-3d2c3445537f" n="1958"/>
                                 <sb xml:id="m-d0bc961d-af22-444b-a530-2ec0f175b226" n="1" facs="#m-ead66801-cbbb-472b-aad3-ba923d5c30a0"/>
                                 <clef xml:id="m-fbe849a5-cd35-4dfd-b521-c8920e299beb" facs="#m-2ad2b277-61bb-4394-8312-1d0083af89d1" line="3" shape="F"/>
                                 <syllable xml:id="m-f33c0206-b87c-45ff-be99-72ecd66195e8">
@@ -1310,7 +1310,7 @@
                                 </syllable>
                                 <divLine xml:id="m-902d4311-c4e2-47bd-97c9-e96cdf6142e6" facs="#m-4c7d4dd5-11e2-4580-8bb4-721a28c0fed2" form="finalis"/>
                                 <sb xml:id="m-b5ddab35-0e32-487c-a3f5-bacb4e112c9f" n="7" facs="#m-801df5b9-72a9-4d25-9e9b-b85971c39a21"/>
-                                <clef xml:id="m-f6d3a6dc-955e-4134-b381-cc8d4802c283" facs="#m-bd9fbaf3-cdbd-47a8-9d32-b01c89399096" line="4" shape="C"/>
+                                <clef xml:id="m-f6d3a6dc-955e-4134-b381-cc8d4802c283" facs="#m-bd9fbaf3-cdbd-47a8-9d32-b01c89399096" line="4" shape="C" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-dcf7ea18-3fa1-4fef-9097-9e0386fdb212">
                                     <syl xml:id="m-078285d8-271f-4a85-837b-d49de23a5d73"/>
                                     <neume type="punctum" xml:id="m-676332e7-0449-47d8-8576-99bf266a6b44">
@@ -1533,7 +1533,7 @@
                                 </syllable>
                                 <custos xml:id="m-00799311-f93b-488a-8701-20cb19e4f1d5" facs="#m-1336d17a-e8c9-47af-83aa-87dfb9666bf2" pname="c" oct="3"/>
                                 <sb xml:id="m-4acc71e1-c957-484c-8309-086f2afc80c6" n="8" facs="#m-1047a86e-1193-42c5-877d-ea028f268246"/>
-                                <clef xml:id="m-8a2bb722-70cf-46d7-92f3-8c47ae64f58d" facs="#m-ef20f180-3604-4b58-897e-77a53591c89d" line="4" shape="C"/>
+                                <clef xml:id="m-8a2bb722-70cf-46d7-92f3-8c47ae64f58d" facs="#m-ef20f180-3604-4b58-897e-77a53591c89d" line="4" shape="C" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-7147fe19-c5a6-4dc6-87da-1196c0eb0ec9">
                                     <syl xml:id="m-ae8655e4-97c1-450a-80ef-6ddfb0953bf2"/>
                                     <neume type="podatus" xml:id="m-66166758-0bdd-4bf8-8b33-47578b6336bc">
@@ -1763,7 +1763,7 @@
                                     </neume>
                                 </syllable>
                                 <sb xml:id="m-7821ebeb-98b8-4399-ab84-0d51ec7edda5" n="9" facs="#m-e4cb197c-c2de-45f0-adea-b8024fa8751b"/>
-                                <clef xml:id="m-75c816a0-da54-41d9-bc3b-53795bf47a38" facs="#m-f20883b6-cf68-46f7-9711-2ceeb3689308" line="4" shape="C"/>
+                                <clef xml:id="m-75c816a0-da54-41d9-bc3b-53795bf47a38" facs="#m-f20883b6-cf68-46f7-9711-2ceeb3689308" line="4" shape="C" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-eb8b58fc-2744-476f-b687-05104be642d4">
                                     <syl xml:id="m-01bb47e0-5282-4e4f-93e0-00e6f76408d9"/>
                                     <neume type="torculus" xml:id="m-c46c0bd3-d664-4aa9-9fa3-db813b25f432">

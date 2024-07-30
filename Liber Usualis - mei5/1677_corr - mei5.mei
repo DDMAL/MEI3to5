@@ -39,13 +39,13 @@
                 <score>
                     <scoreDef>
                         <staffGrp xml:id="m-6c40f31d-0c6c-4280-a26d-7ba8f57d5f3b">
-                            <staffDef xml:id="m-b48de3e8-ac37-485d-af8a-0f99d73f08d5" n="1" lines="4"/>
+                            <staffDef xml:id="m-b48de3e8-ac37-485d-af8a-0f99d73f08d5" n="1" lines="4" notationtype="neume"/>
                         </staffGrp>
                     </scoreDef>
                     <section>
                         <staff>
                             <layer>
-                                <ns0:pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-1fc62ede-3704-4c81-a177-66ded8f32d91" n="1677"/>
+                                <pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-1fc62ede-3704-4c81-a177-66ded8f32d91" n="1677"/>
                                 <sb xml:id="m-a7f1ef70-c0af-4319-bb2d-866bee88c3b9" n="1" facs="#m-1a5de696-2d76-4bd3-925d-abe38b25edee"/>
                                 <custos xml:id="m-b9936be9-3a2e-4de4-b9d6-eea29fd6710e" facs="#m-90b3a6bf-9348-43a1-986f-4296ed097fba" pname="c" oct="4"/>
                                 <syllable xml:id="m-4924bf08-f716-4725-b2f1-4cb3f55a4a14">
@@ -154,7 +154,7 @@
                                         <nc xml:id="m-73127132-3620-4516-8220-ee381ac6a494" pname="g" oct="3" tilt="n"/>
                                     </neume>
                                 </syllable>
-                                <clef xml:id="m-66c95814-5fd4-4982-b08c-652a6edd2f7d" facs="#m-d62966a1-eef1-4a28-b0e5-e61caf74541f" shape="C" line="4"/>
+                                <clef xml:id="m-66c95814-5fd4-4982-b08c-652a6edd2f7d" facs="#m-d62966a1-eef1-4a28-b0e5-e61caf74541f" shape="C" line="4" dis="8" dis.place="above"/>
                             </layer>
                         </staff>
                     </section>

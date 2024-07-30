@@ -181,15 +181,15 @@
                 <score xml:id="m-775eef1c-7910-4dff-b8b8-38e80c5699d3">
                     <scoreDef xml:id="m-8ceef981-278e-4a32-abc4-4159de477605">
                         <staffGrp xml:id="m-c08b19a3-90a6-4156-a50c-0481bc76a36f">
-                            <staffDef xml:id="m-c6fff9c8-1941-4aba-b5e4-75bf4c2c69c3" n="1" lines="4"/>
+                            <staffDef xml:id="m-c6fff9c8-1941-4aba-b5e4-75bf4c2c69c3" n="1" lines="4" notationtype="neume"/>
                         </staffGrp>
                     </scoreDef>
                     <section xml:id="m-5f8a6b2f-7419-43e0-8dc4-c7c290803876">
                         <staff>
                             <layer>
-                                <ns0:pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-c7c81175-352a-4176-b5ef-ea96e1738496" n="1514"/>
+                                <pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-c7c81175-352a-4176-b5ef-ea96e1738496" n="1514"/>
                                 <sb xml:id="m-2cd52c79-4b74-44b5-84ab-073ad27e9daf" n="1" facs="#m-5888aef9-143f-4940-b007-ecdf145f2f34"/>
-                                <clef xml:id="m-32479226-cbce-429a-8c9e-7a586a281824" facs="#m-12058e9a-42da-4eda-8f61-6f7f491c1168" shape="C" line="3"/>
+                                <clef xml:id="m-32479226-cbce-429a-8c9e-7a586a281824" facs="#m-12058e9a-42da-4eda-8f61-6f7f491c1168" shape="C" line="3" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-1d06e2a1-1b80-4777-b2b0-2b0457e8138a">
                                     <syl xml:id="m-3a6777d7-a964-404b-8043-5027e2a5a485"/>
                                     <neume type="punctum" xml:id="m-067a79c6-da5e-4edf-b50e-43991ac9a4b8">
@@ -314,7 +314,7 @@
                                 </syllable>
                                 <divLine xml:id="m-c6d06932-beb2-49cc-88bf-f7830c545294" facs="#m-267c657b-599d-4abe-a3cf-b8b56f0bbd32" form="finalis"/>
                                 <sb xml:id="m-2aeadacc-9b2e-49ef-917a-6f4a1f70a810" n="2" facs="#m-29422d07-0546-4ad9-b2bd-92e112a967bd"/>
-                                <clef xml:id="m-c5630419-f623-4050-baee-086bdc2ca3e4" facs="#m-d155b384-3978-47e6-a215-56ab47e82c80" shape="C" line="3"/>
+                                <clef xml:id="m-c5630419-f623-4050-baee-086bdc2ca3e4" facs="#m-d155b384-3978-47e6-a215-56ab47e82c80" shape="C" line="3" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-d8e28465-9987-44b2-ac41-b1f31568a738">
                                     <syl xml:id="m-0a39a6c9-44db-4004-9417-becdbd6cd386"/>
                                     <neume type="punctum" xml:id="m-6cf0e8ca-1d37-46eb-9a00-0b8d66e86b0c">
@@ -355,7 +355,7 @@
                                 </syllable>
                                 <divLine xml:id="m-6f82fa93-ffe0-454f-899b-0f23722e98d5" facs="#m-8a47be05-70c7-4620-8a93-f1a4770526e9" form="finalis"/>
                                 <sb xml:id="m-68116963-adc6-4ef5-b218-5071db83bf10" n="3" facs="#m-925478a3-6313-4bbf-ac7b-26592897f658"/>
-                                <clef xml:id="m-27cd9b33-f78b-45c3-835c-4253e886e9c1" facs="#m-06c0b25f-5fba-46e7-977d-4084ebf8d3fb" shape="C" line="4"/>
+                                <clef xml:id="m-27cd9b33-f78b-45c3-835c-4253e886e9c1" facs="#m-06c0b25f-5fba-46e7-977d-4084ebf8d3fb" shape="C" line="4" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-30192b52-a28b-418b-b92f-320d7b3ddc9d">
                                     <syl xml:id="m-c0467c77-88d3-40c5-b378-f44e5fa70bcf"/>
                                     <neume type="punctum" xml:id="m-dc3fb6dc-9b74-4fe3-8fda-17b45d54884d">
@@ -469,7 +469,7 @@
                                 <divLine xml:id="m-3fa2370f-be5d-4d1d-a243-0e00e97f9520" facs="#m-88f385ed-98c9-4e01-b9f1-94d2958704ab" form="maxima"/>
                                 <custos xml:id="m-a6f95eb9-628b-4854-b011-1e806c89f0a3" facs="#m-0b853871-4e3d-444b-8ddf-ebe84b25941c" pname="d" oct="4"/>
                                 <sb xml:id="m-613dd144-262e-42fa-b5dc-de1126f5ce9d" n="4" facs="#m-ffec2812-58e7-4d54-833a-8677bba6d704"/>
-                                <clef xml:id="m-16b101c4-d9ca-4d4b-a5c1-a8877388d361" facs="#m-46a84ea7-9f62-4dab-8d43-307d25cfa6bd" shape="C" line="4"/>
+                                <clef xml:id="m-16b101c4-d9ca-4d4b-a5c1-a8877388d361" facs="#m-46a84ea7-9f62-4dab-8d43-307d25cfa6bd" shape="C" line="4" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-0af3abdf-cebb-44e9-bb6d-64675917fba8">
                                     <syl xml:id="m-7d7e9fe9-8173-4822-8e58-faec56d5b648"/>
                                     <neume type="punctum" xml:id="m-c5bebeaf-df80-49ac-9c73-e017a2977aa7">
@@ -600,7 +600,7 @@
                                 </syllable>
                                 <custos xml:id="m-9925bc88-215a-47aa-8cd0-eb9345c5e61a" facs="#m-f853a755-6c21-4579-b7be-06cea4cc192c" pname="a" oct="3"/>
                                 <sb xml:id="m-98adc243-a180-4e6c-bd8b-8575753625e0" n="5" facs="#m-f5fcbbc5-9d1d-4a65-abbf-2d98e0ee883a"/>
-                                <clef xml:id="m-268c2792-09d0-4af3-92ae-904255661f65" facs="#m-5d3b9a24-49b0-4c1f-9729-edf7465b1e46" shape="C" line="4"/>
+                                <clef xml:id="m-268c2792-09d0-4af3-92ae-904255661f65" facs="#m-5d3b9a24-49b0-4c1f-9729-edf7465b1e46" shape="C" line="4" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-39255767-a5c8-4ed4-a09a-9f3d46e79d9c">
                                     <syl xml:id="m-fd68397a-3018-490f-a39b-db21f2599d8f"/>
                                     <neume type="clivis" xml:id="m-d1ed447b-4d19-4ce6-b5f1-4a9c2d01aaea">
@@ -722,7 +722,7 @@
                                 </syllable>
                                 <custos xml:id="m-4d72fbd0-78fd-4db7-92b3-bf9872dd232b" facs="#m-086ffed2-9bb0-4157-844b-8bb56f5a86a5" pname="b" oct="3"/>
                                 <sb xml:id="m-a04e7ba7-1221-42e6-9c3f-fadc74a5174f" n="6" facs="#m-02c73641-37d3-419d-aaa7-11f60c8cd846"/>
-                                <clef xml:id="m-71bad571-f269-4716-aeca-e306f19b0425" facs="#m-ce292682-9070-48c3-bccd-2df5605dce1c" shape="C" line="4"/>
+                                <clef xml:id="m-71bad571-f269-4716-aeca-e306f19b0425" facs="#m-ce292682-9070-48c3-bccd-2df5605dce1c" shape="C" line="4" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-02b4bded-df04-4985-91cd-6b27997d6a71">
                                     <syl xml:id="m-686b93b0-482d-42d5-b342-b464d4825a96"/>
                                     <neume type="punctum" xml:id="m-60be19c8-50fa-4418-a247-f370d36927cc">
@@ -848,7 +848,7 @@
                                 </syllable>
                                 <custos xml:id="m-b0ec8c83-1fb5-4543-a5fe-285b79b4b506" facs="#m-bb021d75-38e8-45e6-8a39-ce69aafceeb1" pname="e" oct="3"/>
                                 <sb xml:id="m-03bf4bfe-0b2e-4a12-8f92-457ef8f5862c" n="7" facs="#m-6f705578-4cff-45bb-916f-65c90d0d1ba2"/>
-                                <clef xml:id="m-530b2cc6-5142-44e0-af72-c62d7f0f1a78" facs="#m-f014c8fb-fc40-47a9-8807-22a4a9e85c7d" shape="C" line="4"/>
+                                <clef xml:id="m-530b2cc6-5142-44e0-af72-c62d7f0f1a78" facs="#m-f014c8fb-fc40-47a9-8807-22a4a9e85c7d" shape="C" line="4" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-457f129b-ddbc-4ed5-8fe6-4fb843574f09">
                                     <syl xml:id="m-972cd34b-91da-4195-b876-7d43a756288c"/>
                                     <neume type="clivis" xml:id="m-8799a5a5-a812-4dbb-bd88-1cb292704e9d">

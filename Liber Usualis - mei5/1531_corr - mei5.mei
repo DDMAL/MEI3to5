@@ -137,13 +137,13 @@
                 <score xml:id="m-9706ed12-ec38-408d-87ef-9a315f5cf053">
                     <scoreDef xml:id="m-6a80cdda-a8d6-456c-bf83-f7670795c073">
                         <staffGrp xml:id="m-7f4e549f-e6c3-462c-a9a4-40dff61e01b9">
-                            <staffDef xml:id="m-a0da6f14-b44a-4a95-b7b9-2395cd7dd493" n="1" lines="4"/>
+                            <staffDef xml:id="m-a0da6f14-b44a-4a95-b7b9-2395cd7dd493" n="1" lines="4" notationtype="neume"/>
                         </staffGrp>
                     </scoreDef>
                     <section xml:id="m-9b7c3f3d-bc3a-41e6-8b9d-86957b1b6bad">
                         <staff>
                             <layer>
-                                <ns0:pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-6446cff4-40a9-4561-8e46-9fe51146eb84" n="1531"/>
+                                <pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-6446cff4-40a9-4561-8e46-9fe51146eb84" n="1531"/>
                                 <sb xml:id="m-b61244ea-61d3-40a2-a49f-bdf1fcfac044" n="1" facs="#m-4863af27-2c42-4201-a542-fbe125425b96"/>
                                 <custos xml:id="m-6a583392-f304-482e-9d2c-ebec22bd881f" facs="#m-5a22772d-d682-4100-b6a8-f8c722646daa" pname="g" oct="3"/>
                                 <divLine xml:id="m-4e78cc7b-2d9d-4d3b-bafe-dfc8cfac2f4d" facs="#m-bf611560-7c77-420d-8595-994d0c807c7b" form="minima"/>
@@ -287,7 +287,7 @@
                                         <nc xml:id="m-9231c214-185d-4216-b9e2-6551231d0b9d" pname="d" oct="3" facs="#m-3397b05f-52aa-435f-894f-1477e99e61c6"/>
                                     </neume>
                                 </syllable>
-                                <clef xml:id="m-ddb02a03-0d77-4c8b-b63b-33700539c645" facs="#m-0a9a555d-e5fb-4ab5-a1b2-9c7f83afc21d" shape="C" line="3"/>
+                                <clef xml:id="m-ddb02a03-0d77-4c8b-b63b-33700539c645" facs="#m-0a9a555d-e5fb-4ab5-a1b2-9c7f83afc21d" shape="C" line="3" dis="8" dis.place="above"/>
                                 <sb xml:id="m-df7a5f66-5dd2-4b14-a4b4-c47cf177bb01" n="2" facs="#m-a6d43d44-60a4-4d2d-b461-8ea32596d525"/>
                                 <custos xml:id="m-fd7d9c89-1d1c-415a-9933-22c548c690d7" facs="#m-7278f192-4f2d-4671-a414-fbcd6c5bbdbd" pname="e" oct="4"/>
                                 <syllable xml:id="m-71ce85a6-ad41-441f-9b78-230d74a3eae2">
@@ -480,7 +480,7 @@
                                         <nc xml:id="m-3905d925-d88d-442f-9a4d-af530cb64881" pname="a" oct="3" facs="#m-6c3c9d50-a879-4e0f-a0ac-7c081dc813a7"/>
                                     </neume>
                                 </syllable>
-                                <clef xml:id="m-a29eb883-d435-4e0a-8d5f-313aced1106e" facs="#m-54f34a06-5aa0-431b-b428-5765b17aeb05" shape="C" line="3"/>
+                                <clef xml:id="m-a29eb883-d435-4e0a-8d5f-313aced1106e" facs="#m-54f34a06-5aa0-431b-b428-5765b17aeb05" shape="C" line="3" dis="8" dis.place="above"/>
                             </layer>
                         </staff>
                         <div xml:id="m-c086af0b-e897-48ff-abe3-69872322e959">

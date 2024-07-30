@@ -61,6 +61,10 @@ def main(filename: str) -> None:
                 child.attrib.pop("oct")
             if child.get("pname") is not None:
                 child.attrib.pop("pname")
+        
+        elif child.tag.endswith("clef")
+            child.attrib["dis"] = "8"
+            child.attrib["dis.place"] = "above"
 
         # Handle division elements (become divLine)
         elif child.tag.endswith("division"):
@@ -209,6 +213,8 @@ def main(filename: str) -> None:
         # Handle staffDef elements
         elif child.tag.endswith("staffDef"):
             child.set("lines", "4")
+            child.set("notationtype", "neume")
+
             if first_def:
                 first_def = False
             else:

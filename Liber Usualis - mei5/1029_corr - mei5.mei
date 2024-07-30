@@ -337,13 +337,13 @@
                 <score xml:id="m-16a77fb5-e226-481f-a194-902145084a57">
                     <scoreDef xml:id="m-ab43cf5a-d402-4d49-93de-49a475d02e7b">
                         <staffGrp xml:id="m-e16a3d85-2447-4800-8898-882d541f49e9">
-                            <staffDef xml:id="m-023f84eb-cfd5-4277-82c4-397c69b35076" n="1" lines="4"/>
+                            <staffDef xml:id="m-023f84eb-cfd5-4277-82c4-397c69b35076" n="1" lines="4" notationtype="neume"/>
                         </staffGrp>
                     </scoreDef>
                     <section xml:id="m-3c408de9-4304-4982-80e9-7612077c8855">
                         <staff>
                             <layer>
-                                <ns0:pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-1f2f5f8f-79b7-4e88-9d57-b444d232090f" n="1029"/>
+                                <pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-1f2f5f8f-79b7-4e88-9d57-b444d232090f" n="1029"/>
                                 <sb xml:id="m-b52bdf74-0fd3-4b32-8a1c-083219c29fca" n="1" facs="#m-ad8fa998-1427-480f-ba8c-45a041d26727"/>
                                 <clef xml:id="m-6d567092-9120-44da-b6df-e44d630323c7" facs="#m-f7294949-8f4e-4b9b-88a9-8e376dee8459" shape="F" line="3"/>
                                 <syllable xml:id="m-f1b1958f-c806-4410-9d97-bf0893d774f6">
@@ -1534,7 +1534,7 @@
                                 </syllable>
                                 <divLine xml:id="m-9218176a-3ea7-4d25-b665-6e4510c0352f" facs="#m-a379cedc-4bd8-4129-919b-35929d7b85cb" form="finalis"/>
                                 <sb xml:id="m-a21d9dfc-f786-490b-926e-8f399f628838" n="7" facs="#m-bcaf5fe4-5f33-4428-8acc-10eff96bd57e"/>
-                                <clef xml:id="m-3a6dcf5d-628a-41e4-82dd-c510efb03aa7" facs="#m-4472e2d5-085b-44df-947b-b9797f399656" shape="C" line="2"/>
+                                <clef xml:id="m-3a6dcf5d-628a-41e4-82dd-c510efb03aa7" facs="#m-4472e2d5-085b-44df-947b-b9797f399656" shape="C" line="2" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-7599a8aa-8a7b-4a5c-9617-167b9f3788ee">
                                     <syl xml:id="m-de0b8c2d-bcb1-4886-8a0a-bcbf1e94925e"/>
                                     <neume type="podatus" xml:id="m-81287ae3-f457-4736-9a87-303abbb8090a">
@@ -1732,7 +1732,7 @@
                                 </syllable>
                                 <custos xml:id="m-b50075c8-c20b-4f8f-8c5c-360974c0db6a" facs="#m-c45afbe1-475c-470d-9632-a0b5054e7a09" pname="g" oct="3"/>
                                 <sb xml:id="m-e218d70f-1857-4868-80ef-9f44407b5996" n="8" facs="#m-5f731405-0c64-471b-a079-4a6173a7d334"/>
-                                <clef xml:id="m-959ac6bd-84de-4508-95b1-1b4fd059ea84" facs="#m-13354d49-c417-4df1-98ef-1d74e350577e" shape="C" line="2"/>
+                                <clef xml:id="m-959ac6bd-84de-4508-95b1-1b4fd059ea84" facs="#m-13354d49-c417-4df1-98ef-1d74e350577e" shape="C" line="2" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-5f741001-7e2a-463f-bed1-b6a78c12f567">
                                     <syl xml:id="m-e5c95f7a-20ae-40b8-8b30-4d7e80e4f379"/>
                                     <neume type="torculus" xml:id="m-ed1d3e2c-3ced-49ac-b68d-db7569553d43">
@@ -1869,7 +1869,7 @@
                                     </neume>
                                 </syllable>
                                 <sb xml:id="m-ab6d5bc0-aaa6-4383-a7c2-9cbd4e79ae89" n="9" facs="#m-161821ee-2e87-41d1-adf6-edda9e6220a1"/>
-                                <clef xml:id="m-e27cc1ff-f624-4462-81ce-f6b08f1f44d0" facs="#m-1f50df86-a617-4031-8636-1d41953b4463" shape="C" line="2"/>
+                                <clef xml:id="m-e27cc1ff-f624-4462-81ce-f6b08f1f44d0" facs="#m-1f50df86-a617-4031-8636-1d41953b4463" shape="C" line="2" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-a521d12e-b805-4386-8aa8-db5b0a0a68c7">
                                     <syl xml:id="m-5bd577d9-34ef-4d40-b726-a7bbc3608e4f"/>
                                     <neume type="virga" xml:id="m-37394155-98ad-4a5f-aae9-c953f6553ab2">

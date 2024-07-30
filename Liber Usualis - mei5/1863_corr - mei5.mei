@@ -88,15 +88,15 @@
                 <score>
                     <scoreDef>
                         <staffGrp xml:id="m-dc4cc825-2ea3-4af8-9484-f176eaf72a8d">
-                            <staffDef xml:id="m-c5a0894e-04b2-4167-a8fe-3bd1f6bef718" n="1" lines="4"/>
+                            <staffDef xml:id="m-c5a0894e-04b2-4167-a8fe-3bd1f6bef718" n="1" lines="4" notationtype="neume"/>
                         </staffGrp>
                     </scoreDef>
                     <section>
                         <staff>
                             <layer>
-                                <ns0:pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-35234408-08f0-4d6a-bd2f-961af173a9d5" n="1863"/>
+                                <pb xmlns:ns0="http://www.music-encoding.org/ns/mei" xml:id="m-35234408-08f0-4d6a-bd2f-961af173a9d5" n="1863"/>
                                 <sb xml:id="m-3c9b48e9-5cb8-4b0b-a427-2fa6fcab7688" n="1" facs="#m-b9b3f7e6-70e5-410b-bb5e-156394882ff4"/>
-                                <clef xml:id="m-7eccdc1f-a233-4540-b726-32ddbcb37d12" facs="#m-1273c832-ba65-40fd-a3f5-f12fe2e36191" line="4" shape="C"/>
+                                <clef xml:id="m-7eccdc1f-a233-4540-b726-32ddbcb37d12" facs="#m-1273c832-ba65-40fd-a3f5-f12fe2e36191" line="4" shape="C" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-5596673e-484c-45db-8945-3aa06e869f58">
                                     <syl xml:id="m-f5843e6b-c046-4213-b488-fba8517b5ac0"/>
                                     <neume type="punctum" xml:id="m-2328a027-4656-4b28-af22-cae370b22c9f">
@@ -212,7 +212,7 @@
                                 </syllable>
                                 <custos xml:id="m-71f228ce-821d-4cc0-8674-6083c25228f5" facs="#m-769c84fd-6a9f-4104-893e-a2790ac4c805" pname="a" oct="3"/>
                                 <sb xml:id="m-27ef2d2c-8ff4-43c3-96a2-28ae2b3de698" n="2" facs="#m-4a54a1e0-2266-4794-985a-ebc5e6e41f96"/>
-                                <clef xml:id="m-da71c6e8-4b63-4994-ac64-a2ae1de1cd94" facs="#m-63fecdc4-9e7a-4c61-990c-a71ca9585ddd" line="4" shape="C"/>
+                                <clef xml:id="m-da71c6e8-4b63-4994-ac64-a2ae1de1cd94" facs="#m-63fecdc4-9e7a-4c61-990c-a71ca9585ddd" line="4" shape="C" dis="8" dis.place="above"/>
                                 <syllable xml:id="m-0bf42d87-67b8-40dd-b628-4817f66df9e9">
                                     <syl xml:id="m-f042de4c-faef-47c7-a800-82f31c54670e"/>
                                     <neume type="punctum" xml:id="m-7170a00b-2cdb-40f6-806a-cd9e1c40d716">
@@ -411,7 +411,7 @@
                                         <nc xml:id="m-0ce743e1-2794-4f58-a540-d82193e4a2f1" pname="d" oct="4" facs="#m-0c2fe3e6-d5e9-4c8b-875b-40d6cd0b1c4c"/>
                                     </neume>
                                 </syllable>
-                                <clef xml:id="m-942317bf-8d58-4567-8918-157f4107ee75" facs="#m-c9495835-0c52-41df-8aef-84e626ddedb1" shape="C" line="3"/>
+                                <clef xml:id="m-942317bf-8d58-4567-8918-157f4107ee75" facs="#m-c9495835-0c52-41df-8aef-84e626ddedb1" shape="C" line="3" dis="8" dis.place="above"/>
                                 <sb xml:id="m-65ed4ede-f391-4222-92e1-d58fa75a4786" n="4" facs="#m-ab09e0d6-b9a3-4ad6-9684-fdebd751ca8d"/>
                                 <syllable xml:id="m-d50936aa-a246-49b2-87c8-32cc2a9f9ad5">
                                     <syl xml:id="m-3ee0e040-9fb0-411d-a34a-6b03b42e9b4a"/>
@@ -463,7 +463,7 @@
                                     </neume>
                                 </syllable>
                                 <divLine xml:id="m-ea3466b0-7813-4a3d-8df8-5d106520b3fb" facs="#m-479181e9-8668-4c6d-b325-4a5ca3b2919f" form="finalis"/>
-                                <clef xml:id="m-f8a9fa49-cbdc-4ba5-a1ed-d7fac7486e65" facs="#m-51625f58-fbf2-4d8e-b547-5c375ba733dd" shape="C" line="4"/>
+                                <clef xml:id="m-f8a9fa49-cbdc-4ba5-a1ed-d7fac7486e65" facs="#m-51625f58-fbf2-4d8e-b547-5c375ba733dd" shape="C" line="4" dis="8" dis.place="above"/>
                             </layer>
                         </staff>
                     </section>
