@@ -62,7 +62,7 @@ def main(filename: str) -> None:
             if child.get("pname") is not None:
                 child.attrib.pop("pname")
         
-        elif child.tag.endswith("clef")
+        elif child.tag.endswith("clef"):
             child.attrib["dis"] = "8"
             child.attrib["dis.place"] = "above"
 
