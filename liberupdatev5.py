@@ -2,7 +2,7 @@ import lxml.etree as ET
 import uuid
 
 
-def main(filename: str) -> None:
+def main(filename: str, dimensions: list) -> None:
     """
     Converts an MEI file to MEI 5.0 format.
 
@@ -61,7 +61,7 @@ def main(filename: str) -> None:
                 child.attrib.pop("oct")
             if child.get("pname") is not None:
                 child.attrib.pop("pname")
-        
+
         elif child.tag.endswith("clef"):
             child.attrib["dis"] = "8"
             child.attrib["dis.place"] = "above"
@@ -234,6 +234,11 @@ def main(filename: str) -> None:
                 sy_bre.append(ET.tostring(child))
                 theres_a_sb = True
                 child.tag = "TODELETE"
+
+        elif child.tag.endswith("surface"):
+            child.set("lrx", dimensions[0])
+            child.set("lry", dimensions[1])
+            
 
         # Handle zone elements (adjusts negative ulx and lrx attributes)
         elif child.tag.endswith("zone"):
