@@ -2,6 +2,7 @@ import os
 import csv
 import meichecker
 import liberupdatev5
+import concurrent.futures
 
 """
 Updates and validates all MEI files in the current directory.
@@ -17,7 +18,7 @@ with open("image_dimensions.csv", "r") as f:
 default = ["0","0"]
 error_message = ""
 
-for me_file in os.listdir("."):
+def process_file(me_file):
     file_name = os.fsdecode(me_file)
     if file_name.endswith("corr.mei"):
         dimensions = csv_dict.get(file_name.split("_")[0], default)
@@ -27,8 +28,14 @@ for me_file in os.listdir("."):
 
         # Validate the updated MEI file using meichecker
         error_log = meichecker.main(file_name[:-4] + " - mei5.mei")
-        error_message += f"{error_log}\n"
         print(f"{file_name} has been checked")
+        return error_log
+    return ""
 
-# Print the accumulated error messages
-print(error_message)
+if __name__ == "__main__":
+    with concurrent.futures.ProcessPoolExecutor() as executor:
+        futures = [executor.submit(process_file, me_file) for me_file in os.listdir(".")]
+        error_messages = [future.result() for future in futures]
+
+    # Print the accumulated error messages
+    print("\n".join(error_messages))
